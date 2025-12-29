@@ -4,12 +4,13 @@ import AboutMe from "./components/aboutme";
 import { SmoothCursor } from "./components/ui/smooth-cursor";
 import FloatingCV from "./components/floatingCV";
 import Skill from "./components/skill";
+import { Portofolio } from "./components/portofolio";
 
 function App() {
 
   return (
     <div className="">
-      <SmoothCursor />
+      {/* <SmoothCursor /> */}
         <section className="relative w-full min-h-[300px] md:min-h-screen overflow-hidden">
               
               <motion.img
@@ -91,7 +92,10 @@ function App() {
         <div className="about bg-[#fff6e1]">
           <TextCurved/>
           <AboutMe/>
-          <Skill/>
+          <div className="py-20">
+            <Portofolio/>
+          </div>
+          {/* <Skill/> */}
         </div>
         <FloatingCV/>
     </div>
