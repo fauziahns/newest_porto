@@ -36,22 +36,14 @@ export function Portofolio() {
     <div
     className="
         relative
-        bg-[url('/bgexp-mobile.png')]
-        md:bg-[url('/bgexp.png')]
+        bg-[url('/porto.png')]
+        md:bg-[url('/porto.png')]
         bg-no-repeat
         bg-center
         bg-cover
-        py-24
+        
     "
     >
-      <div className="max-w-2xl mx-auto text-center mb-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">
-          Portofolio Proyek
-        </h2>
-        <p className="text-neutral-500 mt-2 text-sm md:text-base">
-          Beberapa proyek yang pernah saya kerjakan sebagai System Analyst &amp; UI/UX-Frontend Developer
-        </p>
-      </div>
 
       <AnimatePresence>
         {active && typeof active === "object" && (
@@ -191,8 +183,8 @@ const cards = [
     description: "Analisis, Perancangan GIS & BIM",
     title: "Asset Register System",
     role: "System Analyst",
-    date: "Januari 2025 - Sekarang",
-    src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
+    date: "2025",
+    src: "/bim.png",
     documents: [
       {
         name: "Product Requirement Document (PRD)",
@@ -252,8 +244,8 @@ const cards = [
     description: "Sistem Manajemen Dokumen Perusahaan",
     title: "Document Management System (DMS)",
     role: "System Analyst",
-    date: "Januari 2025 - Sekarang",
-    src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+    date: "2026",
+    src: "/wise.png",
     ctaText: "Lihat Detail",
     ctaLink: "#",
     content: () => {
@@ -308,8 +300,8 @@ const cards = [
     description: "Sistem Informasi Sumber Daya Manusia",
     title: "Human Resource Information System (HRIS)",
     role: "UI/UX Designer & Frontend Developer",
-    date: "Januari 2025 - Sekarang",
-    src: "https://assets.aceternity.com/demos/metallica.jpeg",
+    date: "2025",
+    src: "/hris.png",
     ctaText: "Lihat Detail",
     ctaLink: "#",
     content: () => {
@@ -353,6 +345,48 @@ const cards = [
           <p className="font-semibold text-neutral-900">Di Luar Peran Saya</p>
           <p className="text-justify">
             Proyek ini memberi saya kesempatan untuk menjembatani desain dan pengembangan dengan mengubah konsep UI menjadi pengalaman frontend yang sepenuhnya fungsional. Saya menikmati proses berkolaborasi dengan tim untuk menyempurnakan interaksi pengguna, membangun komponen yang reusable, serta memastikan implementasi antarmuka sesuai dengan desain sambil tetap memberikan pengalaman pengguna yang halus dan responsif.
+          </p>
+        </div>
+      );
+    },
+  },
+    {
+    description: "Analisis & Implementasi Sistem Maintenance Aset",
+    title: "Asset Registry & Maintenance System",
+    role: "System Analyst",
+    date: "2025",
+    src: "/hal.png",
+    ctaText: "Lihat Detail",
+    ctaLink: "#",
+    content: () => {
+      return (
+        <div className="space-y-4">
+          <p>
+            Asset Registry & Maintenance System adalah platform manajemen maintenance terintegrasi yang dikembangkan untuk PT Haleyora Powerindo, bertujuan mensentralisasi registrasi aset dan proses pemeliharaan dalam satu sistem yang terstruktur, guna meningkatkan traceability dan efisiensi operasional.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Peran & Tanggung Jawab</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Memimpin proses requirement elicitation dan analisis proses bisnis bersama stakeholder lintas fungsi untuk mendefinisikan alur kerja maintenance secara end-to-end.</li>
+            <li>Menyusun dokumentasi functional specification, proses bisnis, dan diagram UML sebagai acuan implementasi sistem yang efisien.</li>
+            <li>Berkolaborasi dengan tim development dan QA di sepanjang siklus pengembangan iteratif, memastikan kebutuhan yang terus berkembang tetap terefleksikan dengan akurat pada sistem.</li>
+            <li>Menjalankan sesi System Integration Testing (SIT) dan User Acceptance Testing (UAT) untuk memvalidasi proses bisnis sebelum sistem diimplementasikan.</li>
+            <li>Membantu mengimplementasikan platform manajemen maintenance terintegrasi yang meningkatkan traceability dan efisiensi operasional.</li>
+          </ul>
+
+          <p className="font-semibold text-neutral-900">Fitur Utama</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Registrasi dan manajemen maintenance aset secara terpusat dalam satu platform</li>
+            <li>Penjadwalan maintenance (maintenance scheduling)</li>
+            <li>Riwayat maintenance (maintenance history)</li>
+            <li>Alur peninjauan (review workflow)</li>
+            <li>Monitoring aset</li>
+            <li>Pelacakan siklus hidup aset (asset lifecycle tracking)</li>
+          </ul>
+
+          <p className="font-semibold text-neutral-900">Tools & Teknologi</p>
+          <p>
+            Jira, Draw.io, Microsoft Visio, Figma, PostgreSQL, Agile Scrum
           </p>
         </div>
       );

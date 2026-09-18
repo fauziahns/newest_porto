@@ -5,6 +5,7 @@ import { SmoothCursor } from "./components/ui/smooth-cursor";
 import FloatingCV from "./components/floatingCV";
 import Skill from "./components/skill";
 import { Portofolio } from "./components/portofolio";
+import { Contact } from "./components/contact";
 
 function App() {
 
@@ -96,6 +97,7 @@ function App() {
             <Portofolio/>
           </div>
           {/* <Skill/> */}
+          <Contact/>
         </div>
         <FloatingCV/>
     </div>
