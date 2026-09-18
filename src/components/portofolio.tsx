@@ -3,7 +3,7 @@
 import  { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import { User, Calendar } from "lucide-react";
+import { User, Calendar, X } from "lucide-react";
 
 export function Portofolio() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -33,13 +33,25 @@ export function Portofolio() {
 
   return (
     <>
-    <div className="
+    <div
+    className="
         relative
-        bg-[url('/porto.png')]
-        md:bg-[url('/porto.png')]
+        bg-[url('/bgexp-mobile.png')]
+        md:bg-[url('/bgexp.png')]
         bg-no-repeat
         bg-center
-        bg-cover">
+        bg-cover
+        py-24
+    "
+    >
+      <div className="max-w-2xl mx-auto text-center mb-10">
+        <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">
+          Portofolio Proyek
+        </h2>
+        <p className="text-neutral-500 mt-2 text-sm md:text-base">
+          Beberapa proyek yang pernah saya kerjakan sebagai System Analyst &amp; UI/UX-Frontend Developer
+        </p>
+      </div>
 
       <AnimatePresence>
         {active && typeof active === "object" && (
@@ -47,79 +59,59 @@ export function Portofolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/20 h-full w-full z-10"
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm h-full w-full z-10"
           />
         )}
       </AnimatePresence>
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0  grid place-items-center z-[100]">
+          <div className="fixed inset-0 grid place-items-center z-[100] p-4">
             <motion.button
               key={`button-${active.title}-${id}`}
               layout
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 0.05,
-                },
-              }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.05 } }}
+              className="flex absolute top-4 right-4 md:top-6 md:right-[calc(50%-380px)] items-center justify-center bg-white shadow-md hover:bg-neutral-100 transition-colors rounded-full h-9 w-9 z-20"
               onClick={() => setActive(null)}
             >
-              <CloseIcon />
+              <X size={18} className="text-neutral-700" />
             </motion.button>
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[800px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              className="w-full max-w-[760px] h-full md:h-fit md:max-h-[85%] flex flex-col bg-white rounded-2xl md:rounded-3xl shadow-2xl overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
-              {/* <motion.div layoutId={`image-${active.title}-${id}`}>
-                <img
-                  width={200}
-                  height={200}
-                  src={active.src}
-                  alt={active.title}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
-                />
-              </motion.div> */}
-
               <div>
-                <div className="flex justify-between items-start p-4">
-                  <div className="">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 p-6 md:p-8 border-b border-neutral-100 bg-gradient-to-br from-emerald-50 to-white">
+                  <div>
                         <motion.h3
                             layoutId={`title-${active.title}-${id}`}
-                            className="font-medium text-neutral-200 text-lg"
+                            className="font-semibold text-neutral-900 text-xl md:text-2xl"
                         >
                             {active.title}
                         </motion.h3>
 
                         <motion.p
                             layoutId={`description-${active.description}-${id}`}
-                            className="text-neutral-400 text-sm mt-1"
+                            className="text-neutral-500 text-sm mt-1.5"
                         >
                             {active.description}
                         </motion.p>
 
                         {/* ROLE & DATE */}
-                        <div className="flex flex-col gap-2 mt-4 text-sm text-neutral-400">
-                            <div className="flex items-center gap-2">
-                                <User size={16} />
+                        <div className="flex flex-wrap gap-4 mt-4 text-sm text-neutral-600">
+                            <div className="flex items-center gap-1.5">
+                                <User size={16} className="text-emerald-600" />
                                 <span>{active.role}</span>
                             </div>
 
-                            <div className="flex items-center gap-2">
-                                <Calendar size={16} />
+                            <div className="flex items-center gap-1.5">
+                                <Calendar size={16} className="text-emerald-600" />
                                 <span>{active.date}</span>
                             </div>
                         </div>
                     </div>
-
 
                   <motion.a
                     layout
@@ -128,18 +120,18 @@ export function Portofolio() {
                     exit={{ opacity: 0 }}
                     href={active.ctaLink}
                     target="_blank"
-                    className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                    className="shrink-0 px-4 py-2.5 text-sm rounded-full font-semibold bg-emerald-500 hover:bg-emerald-600 transition-colors text-white text-center"
                   >
                     {active.ctaText}
                   </motion.a>
                 </div>
-                <div className="pt-4 relative px-4 pb-10">
+                <div className="relative px-6 md:px-8 py-6">
                   <motion.div
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-xs md:text-sm lg:text-base dark:text-neutral-400"
+                    className="text-neutral-600 text-sm md:text-base leading-relaxed"
                   >
                     {typeof active.content === "function"
                       ? active.content()
@@ -151,41 +143,39 @@ export function Portofolio() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-4">
+      <ul className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-5">
         {cards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={card.title}
             onClick={() => setActive(card)}
-            className="p-4 flex flex-col  hover:bg-neutral-50 dark:hover:border rounded-xl cursor-pointer"
+            className="flex flex-col bg-white border border-neutral-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
           >
-            <div className="flex gap-4 flex-col  w-full">
-              <motion.div layoutId={`image-${card.title}-${id}`}>
-                <img
-                  width={100}
-                  height={100}
-                  src={card.src}
-                  alt={card.title}
-                  className="h-60 w-full  rounded-lg object-cover object-top"
-                />
-              </motion.div>
-                <div className="flex flex-col">
+            <motion.div layoutId={`image-${card.title}-${id}`}>
+              <img
+                width={100}
+                height={100}
+                src={card.src}
+                alt={card.title}
+                className="h-52 w-full object-cover object-top"
+              />
+            </motion.div>
+            <div className="flex flex-col p-4">
                 <motion.h3
                     layoutId={`title-${card.title}-${id}`}
-                    className="font-medium text-center md:text-left text-base"
+                    className="font-semibold text-neutral-900 text-base"
                 >
                     {card.title}
                 </motion.h3>
+                <p className="text-sm text-neutral-500 mt-1">{card.description}</p>
 
-                {/* ROLE */}
-                <div className="flex items-center gap-2 text-xs text-neutral-500 mt-1">
-                    <User size={14} />
+                <div className="flex items-center gap-1.5 text-xs text-neutral-500 mt-3">
+                    <User size={14} className="text-emerald-600" />
                     <span>{card.role}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-neutral-500 mt-1">
-                    <Calendar size={16} />
+                <div className="flex items-center gap-1.5 text-xs text-neutral-500 mt-1.5">
+                    <Calendar size={14} className="text-emerald-600" />
                     <span>{card.date}</span>
-                </div>
                 </div>
             </div>
           </motion.div>
@@ -196,48 +186,13 @@ export function Portofolio() {
   );
 }
 
-export const CloseIcon = () => {
-  return (
-    <motion.svg
-      initial={{
-        opacity: 0,
-      }}
-      animate={{
-        opacity: 1,
-      }}
-      exit={{
-        opacity: 0,
-        transition: {
-          duration: 0.05,
-        },
-      }}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-4 w-4 text-black"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M18 6l-12 12" />
-      <path d="M6 6l12 12" />
-    </motion.svg>
-  );
-};
-
 const cards = [
   {
-    description: "Analisis & Dokumentasi Sistem",
-    title: "Register Aset Sarana dan Prasarana PT.X",
+    description: "Analisis, Perancangan GIS & BIM",
+    title: "Asset Register System",
     role: "System Analyst",
-    date: "Juli 2025 - Desember 2025",
+    date: "Januari 2025 - Sekarang",
     src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-    ctaText: "Study Case",
-    ctaLink: "https://ui.aceternity.com/templates",
     documents: [
       {
         name: "Product Requirement Document (PRD)",
@@ -263,117 +218,143 @@ const cards = [
     content: () => {
       return (
         <div className="space-y-4">
-          <p>
-            Dalam studi kasus ini, saya berperan sebagai System Analyst yang bertanggung jawab dalam menganalisis kebutuhan bisnis serta menerjemahkannya ke dalam solusi sistem yang terstruktur dan terdokumentasi dengan baik. Peran ini mencakup proses penggalian kebutuhan pengguna, analisis proses bisnis, serta penyusunan dokumentasi sebagai acuan pengembangan sistem.
+          <p className="text-justify">
+            Asset Register System adalah aplikasi web enterprise yang dikembangkan untuk mensentralisasi informasi aset ke dalam satu platform digital. Dalam proyek ini saya berperan sebagai System Analyst yang bertanggung jawab menganalisis kebutuhan bisnis serta menerjemahkannya ke dalam solusi sistem yang terstruktur dan terdokumentasi dengan baik. Sistem ini memungkinkan pengguna untuk mengelola dan memvisualisasikan aset melalui data tabular, peta GIS 2D interaktif, dan model 3D BIM — pengguna dapat memilih aset langsung dari model 3D untuk mengakses spesifikasi, lokasi, dan dokumentasi terkait.
           </p>
-          
-          <p className="font-semibold">Dokumen utama yang dihasilkan:</p>
-          
-          <ul className="space-y-2">
-            {cards[0].documents.map((doc, index) => (
-              <li key={index}>
-                <a 
-                  href={doc.pdfUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-2 p-3 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group"
-                >
-                  <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/>
-                  </svg>
-                  <div className="flex-1">
-                    <strong className="text-neutral-800 dark:text-neutral-200 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
-                      {doc.name}
-                    </strong>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
-                      {doc.description}
-                    </p>
-                  </div>
-                  <svg className="w-4 h-4 text-neutral-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </li>
-            ))}
-          </ul>
-          
-          <p>
-           Dokumen pada studi kasus ini merupakan versi sanitized yang disesuaikan untuk keperluan portofolio. Seluruh data sensitif, identitas internal, dan informasi rahasia telah disamarkan tanpa mengurangi esensi proses analisis dan perancangan sistem
+          <p className="text-justify">
+            Lebih dari sekadar aplikasi berdiri sendiri, Asset Register System menjadi fondasi digital untuk strategi manajemen aset jangka panjang organisasi, membuka jalan menuju ekosistem Enterprise Asset Management (EAM) yang terintegrasi penuh.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Problem</p>
+          <p className="text-justify">
+            Pengelolaan informasi aset yang tersebar di berbagai lokasi dan sumber data yang terputus membuat organisasi kesulitan menjaga satu sumber data yang akurat (single source of truth) untuk aset perusahaan. Tanpa data yang tersentralisasi, organisasi menghadapi tantangan dalam visibilitas aset, pelacakan spasial, dan persiapan menuju inisiatif manajemen aset yang lebih matang.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Solusi</p>
+          <p className="text-justify">
+            Untuk menjawab tantangan tersebut, Asset Register System mengintegrasikan data aset yang terstruktur dengan peta GIS 2D interaktif dan visualisasi 3D BIM dalam satu platform terpadu. Hal ini memungkinkan pengguna untuk dengan cepat menemukan lokasi aset, mengakses informasi detail, serta membangun fondasi data yang andal untuk manajemen siklus hidup aset ke depannya.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Tantangan</p>
+          <p className="text-justify">
+            Salah satu tantangan terbesar adalah beradaptasi dengan teknologi yang sepenuhnya baru bagi saya, terutama alur kerja GIS dan BIM menggunakan Autodesk Revit. Saya meluangkan waktu untuk memahami bagaimana data geospasial, model 3D, dan informasi aset diintegrasikan ke dalam satu sistem, sehingga saya dapat menerjemahkan kebutuhan bisnis menjadi spesifikasi fungsional secara efektif.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Di Luar Peran Saya</p>
+          <p className="text-justify" >
+            Meskipun tanggung jawab utama saya adalah sebagai System Analyst, saya juga turut berkontribusi dalam proses pemodelan 3D BIM. Keluar dari peran inti ini memberi saya pemahaman yang lebih dalam tentang bagaimana data engineering diubah menjadi aset digital interaktif, mencerminkan kemauan saya untuk terus belajar teknologi baru dan berkolaborasi lintas disiplin ilmu. Saya membuat parametric Revit families yang secara otomatis menyesuaikan dimensi host-nya, sehingga sangat reusable, konsisten, dan efisien digunakan di berbagai model aset.
           </p>
         </div>
       );
     },
   },
   {
-    description: "Babbu Maan",
-    title: "Mitran Di Chhatri",
-    role: "Backend Developer",
-    date: "2019 - 2020",
+    description: "Sistem Manajemen Dokumen Perusahaan",
+    title: "Document Management System (DMS)",
+    role: "System Analyst",
+    date: "Januari 2025 - Sekarang",
     src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
+    ctaText: "Lihat Detail",
+    ctaLink: "#",
     content: () => {
       return (
-        <p>
-          Babu Maan, a legendary Punjabi singer, is renowned for his soulful
-          voice and profound lyrics that resonate deeply with his audience. Born
-          in the village of Khant Maanpur in Punjab, India, he has become a
-          cultural icon in the Punjabi music industry. <br /> <br /> His songs
-          often reflect the struggles and triumphs of everyday life, capturing
-          the essence of Punjabi culture and traditions. With a career spanning
-          over two decades, Babu Maan has released numerous hit albums and
-          singles that have garnered him a massive fan following both in India
-          and abroad.
-        </p>
-      );
-    },
-  },
+        <div className="space-y-4">
+          <p className="text-justify" >
+            Document Management System (DMS) adalah aplikasi web enterprise yang dikembangkan untuk mensentralisasi penyimpanan dokumen, menyederhanakan alur kerja dokumen, dan meningkatkan aksesibilitas informasi di seluruh organisasi. Platform ini memungkinkan pengguna untuk mengunggah, mengorganisir, mencari, dan mengelola dokumen secara aman, dengan dukungan struktur folder, manajemen metadata, kontrol versi, dan hak akses berbasis peran.
+          </p>
+          <p className="text-justify">
+            Dibandingkan sekadar menjadi repositori digital biasa, DMS membangun ekosistem dokumen terpusat yang meningkatkan kolaborasi, tata kelola, dan efisiensi operasional di sepanjang siklus hidup dokumen.
+          </p>
 
-  {
-    description: "Metallica",
-    title: "For Whom The Bell Tolls",
-    role: "Full Stack Developer",
-    date: "2018 - 2019",
-    src: "https://assets.aceternity.com/demos/metallica.jpeg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Metallica, an iconic American heavy metal band, is renowned for their
-          powerful sound and intense performances that resonate deeply with
-          their audience. Formed in Los Angeles, California, they have become a
-          cultural icon in the heavy metal music industry. <br /> <br /> Their
-          songs often reflect themes of aggression, social issues, and personal
-          struggles, capturing the essence of the heavy metal genre. With a
-          career spanning over four decades, Metallica has released numerous hit
-          albums and singles that have garnered them a massive fan following
-          both in the United States and abroad.
-        </p>
+          <p className="font-semibold text-neutral-900">Problem</p>
+          <p className="text-justify">
+            Pengelolaan dokumen organisasi yang tersebar di berbagai lokasi penyimpanan membuat kolaborasi, pencarian dokumen, dan kontrol versi menjadi tidak efisien. Penanganan dokumen secara manual juga meningkatkan risiko duplikasi file, struktur dokumen yang tidak konsisten, serta kesulitan dalam melacak riwayat dokumen dan akses pengguna.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Solusi</p>
+          <p className="text-justify">
+            DMS menyediakan platform terpusat di mana dokumen dapat disimpan, diklasifikasikan, dan dikelola secara aman melalui struktur folder dan metadata. Fitur seperti kontrol akses berbasis peran, versioning dokumen, pencarian lanjutan, alur persetujuan (approval workflow), dan activity log memungkinkan pengguna mengakses informasi yang tepat secara efisien sambil menjaga keamanan dan integritas dokumen.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Fitur Enterprise</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Large File Upload (hingga 5 GB)</li>
+            <li>Chunk &amp; Resume Upload</li>
+            <li>Document Versioning</li>
+            <li>Advanced Search &amp; Filtering</li>
+            <li>Automated Retention Schedule (JRA)</li>
+            <li>Automated Document Disposal Workflow</li>
+            <li>Bulk Document Import</li>
+            <li>Custom Metadata Classification</li>
+            <li>Document Sharing with Expiration</li>
+            <li>Document Lifecycle Management</li>
+          </ul>
+
+          <p className="font-semibold text-neutral-900">Tantangan</p>
+          <p className="text-justify">
+            Salah satu tantangan terbesar adalah menyelesaikan sistem dalam tenggat pengembangan yang ketat, yaitu tiga bulan, sambil menerjemahkan proses manajemen dokumen yang kompleks ke dalam kebutuhan sistem yang fungsional.
+          </p>
+          <p className="text-justify">
+            Sistem harus mengakomodasi berbagai skenario siklus hidup dokumen, termasuk kebijakan retensi, pemusnahan dokumen berdasarkan Jadwal Retensi Arsip (JRA), alur persetujuan, hingga penanganan pengecualian akibat tindakan pengguna. Setiap alur kerja membutuhkan diskusi mendalam bersama pemangku kepentingan agar sistem benar-benar mencerminkan proses bisnis dan kebijakan organisasi tanpa menimbulkan risiko operasional.
+          </p>
+          <p className="text-justify">
+            Pengalaman ini memperkuat kemampuan analitis saya dan menegaskan pentingnya memahami proses bisnis secara menyeluruh sebelum menerjemahkannya menjadi fungsionalitas sistem.
+          </p>
+        </div>
       );
     },
   },
   {
-    description: "Lord Himesh",
-    title: "Aap Ka Suroor",
-    role: "UI/UX Designer",
-    date: "2017 - 2018",
-    src: "https://assets.aceternity.com/demos/aap-ka-suroor.jpeg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
+    description: "Sistem Informasi Sumber Daya Manusia",
+    title: "Human Resource Information System (HRIS)",
+    role: "UI/UX Designer & Frontend Developer",
+    date: "Januari 2025 - Sekarang",
+    src: "https://assets.aceternity.com/demos/metallica.jpeg",
+    ctaText: "Lihat Detail",
+    ctaLink: "#",
     content: () => {
       return (
-        <p>
-          Himesh Reshammiya, a renowned Indian music composer, singer, and
-          actor, is celebrated for his distinctive voice and innovative
-          compositions. Born in Mumbai, India, he has become a prominent figure
-          in the Bollywood music industry. <br /> <br /> His songs often feature
-          a blend of contemporary and traditional Indian music, capturing the
-          essence of modern Bollywood soundtracks. With a career spanning over
-          two decades, Himesh Reshammiya has released numerous hit albums and
-          singles that have garnered him a massive fan following both in India
-          and abroad.
-        </p>
+        <div className="space-y-4">
+          <p className="text-justify">
+            Human Resource Information System (HRIS) adalah aplikasi web internal yang dikembangkan untuk mendigitalisasi dan mensentralisasi proses operasional harian perusahaan. Platform ini menggabungkan berbagai modul — termasuk manajemen karyawan, absensi, pengajuan cuti, lembur, manajemen proyek, manajemen aset, dan pengumuman internal — ke dalam satu sistem terintegrasi.
+          </p>
+          <p className="text-justify">
+            Dirancang dengan pendekatan user-centered, aplikasi ini berfokus pada penyederhanaan alur kerja harian melalui antarmuka yang bersih, modern, dan intuitif, sehingga memudahkan karyawan maupun administrator dalam mengelola tugas mereka secara lebih efisien.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Problem</p>
+          <p className="text-justify">
+            Perusahaan sebelumnya mengandalkan berbagai proses manual dan tools yang terpisah untuk mengelola administrasi karyawan, pelacakan proyek, dan aktivitas operasional harian. Hal ini seringkali menghasilkan informasi yang terfragmentasi, pekerjaan administratif yang repetitif, dan kolaborasi antar tim yang kurang efisien.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Solusi</p>
+          <p className="text-justify">
+            HRIS mengonsolidasikan operasional bisnis penting ke dalam satu platform terpusat dengan pengalaman pengguna yang intuitif. Peran saya berfokus pada perancangan antarmuka yang ramah pengguna serta implementasi komponen frontend yang responsif, memastikan setiap modul memberikan pengalaman yang konsisten, mudah diakses, dan mulus sambil tetap mendukung kebutuhan operasional perusahaan.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Fitur Utama</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Employee Management</li>
+            <li>Attendance Tracking</li>
+            <li>Leave &amp; Time-Off Management</li>
+            <li>Overtime Requests</li>
+            <li>Daily Activity Reports</li>
+            <li>Kanban Project Management</li>
+            <li>Asset Management</li>
+            <li>Company Announcements</li>
+            <li>Master Data Management</li>
+          </ul>
+
+          <p className="font-semibold text-neutral-900">Tantangan</p>
+          <p className="text-justify">
+            Salah satu tantangan terbesar adalah merancang antarmuka untuk berbagai modul bisnis sambil menjaga konsistensi pengalaman pengguna di seluruh aplikasi. Karena setiap modul melayani alur kerja dan peran pengguna yang berbeda, saya berfokus pada pembuatan komponen UI yang reusable serta menetapkan pola desain yang konsisten demi skalabilitas, kemudahan pemeliharaan, dan kemudahan penggunaan.
+          </p>
+
+          <p className="font-semibold text-neutral-900">Di Luar Peran Saya</p>
+          <p className="text-justify">
+            Proyek ini memberi saya kesempatan untuk menjembatani desain dan pengembangan dengan mengubah konsep UI menjadi pengalaman frontend yang sepenuhnya fungsional. Saya menikmati proses berkolaborasi dengan tim untuk menyempurnakan interaksi pengguna, membangun komponen yang reusable, serta memastikan implementasi antarmuka sesuai dengan desain sambil tetap memberikan pengalaman pengguna yang halus dan responsif.
+          </p>
+        </div>
       );
     },
   },

@@ -6,26 +6,13 @@ const experiences = [
   {
     title: "PT Dunia Maya Comunica",
     role: "System Analyst",
-    period: "December 2024 – Present",
+    period: "Januari 2025 – Present",
     points: [
-      "Conducted business requirement analysis and application design based on company needs.",
-      "Designed business process flows and system diagrams (such as Use Case, Activity, Sequence Diagrams, ERD, DFD) to ensure alignment between business processes and technical implementation.",
-      "Prepared documentation including PRD, FSD, Change Request (CR), and UAT scenarios.",
-      "Supported User Acceptance Testing (UAT) with end users.",
-      "Applied basic SQL knowledge to support system analysis.",
-    ],
-  },
-  {
-    title: "Complete Front-End Engineer Career With ReactJS",
-    role: "Kampus Merdeka: Studi Independen with Alterra Academy  ",
-    period: "2023",
-    subDescription: "Completed the Front-End Engineer program with a structured curriculum and hands-on projects, and received a completion certificate.",
-    points: [
-      "React components, hooks, routing, and state management",
-      "REST API and GraphQL integration",
-      "Team-based end-to-end system development.",
-      "Communication, teamwork, and career preparation.",
-      "Individual product development project."
+      "Melakukan requirement gathering dan analisis proses bisnis lintas departemen untuk merancang solusi sistem sesuai kebutuhan organisasi.",
+      "Menyusun Software Requirement Specification (SRS), Functional Specification Document (FSD), business process flow, dan dokumentasi UML (Use Case, Activity, Sequence, Class, Database, Deployment Diagram) sebagai acuan bersama tim bisnis dan teknis",
+      "Menjalankan sesi requirement gathering, sprint planning, System Integration Testing (SIT), dan User Acceptance Testing (UAT) agar hasil pengembangan tetap selaras dengan tujuan bisnis.",
+      "Menulis user manual, laporan implementasi, dan dokumentasi rapat untuk menjaga kesinambungan pengetahuan proyek.",
+      "Berkoordinasi dengan developer untuk memastikan implementasi sesuai dengan kebutuhan bisnis. ",
     ],
   },
   {
@@ -33,19 +20,20 @@ const experiences = [
     role: "Internship Frontend Developer",
     period: "2023",
     points: [
-      "Built UI components with React.js based on provided designs.",
-      "Integrated front-end with existing APIs under supervision.",
-      "Participated in code reviews and team discussions.",
-      "Fixed minor UI bugs and styling issues.",
-      "Implemented responsive layouts for desktop and mobile views.",
+      "Membangun komponen UI menggunakan React.js berdasarkan desain yang disediakan.",
+      "Mengintegrasikan front-end dengan API yang sudah ada di bawah supervisi.",
+      "Berpartisipasi dalam tinjauan kode (code review) dan diskusi tim.",
+      "Memperbaiki bug UI minor dan masalah penataan tampilan (styling).",
+      "Mengimplementasikan tata letak responsif untuk tampilan desktop dan mobile."
     ],
   },
   {
     title: "Graduated at Universitas Komputer Indonesia",
     role: "Sistem Informasi",
-    period: "2024",
+    period: "Desember 2024",
     points: [
-      "GPA 3,75"
+      "GPA 3,75/4,00",
+      "Menyelesaikan proyek akhir (skripsi) berupa sistem informasi berbasis web untuk Penyewaan Ruangan Creative Center Jawa Barat.",
     ],
   },
 ];
