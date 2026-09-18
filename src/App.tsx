@@ -6,6 +6,7 @@ import FloatingCV from "./components/floatingCV";
 import Skill from "./components/skill";
 import { Portofolio } from "./components/portofolio";
 import { Contact } from "./components/contact";
+import { Certificates } from "./components/certificate";
 
 function App() {
 
@@ -97,6 +98,9 @@ function App() {
             <Portofolio/>
           </div>
           {/* <Skill/> */}
+          <div className="py-20">
+            <Certificates/>
+          </div>
           <Contact/>
         </div>
         <FloatingCV/>
