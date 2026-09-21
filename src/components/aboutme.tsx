@@ -55,31 +55,32 @@ export default function AboutMe() {
         bg-no-repeat
         bg-center
         bg-cover
-        py-24
+        py-12
+        md:py-24
     "
     >
 
-    <div className="relative flex flex-wrap w-fit mx-auto gap-10 items-center">
+    <div className="relative flex flex-wrap w-full md:w-fit mx-auto gap-6 md:gap-10 items-center justify-center px-4 md:px-0">
         <div>
         <motion.img
             src="/exp.png"
             alt="Card"
-            className="max-w-lg"
+            className="max-w-[80vw] sm:max-w-md md:max-w-lg"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
         />
         </div>
 
-        <div className="space-y-4 md:w-[520px] mx-10 text-white">
+        <div className="space-y-4 w-full md:w-[520px] md:mx-10 text-white">
         {experiences.map((item, index) => (
             <div key={index} className="border-b border-white/20 pb-4">
             <button
                 onClick={() => toggle(index)}
-                className="w-full flex items-center justify-between text-left"
+                className="w-full flex items-center justify-between gap-4 text-left"
             >
                 <div>
-                <h3 className="text-xl text-[#df6592] font-semibold">
+                <h3 className="text-lg sm:text-xl text-[#df6592] font-semibold">
                     {item.title}
                 </h3>
                 <p className="text-sm text-black">
@@ -88,6 +89,7 @@ export default function AboutMe() {
                 </div>
 
                 <motion.span
+                className="shrink-0"
                 animate={{ rotate: activeIndex === index ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
                 >
@@ -105,14 +107,10 @@ export default function AboutMe() {
                     className="overflow-hidden"
                     >
                     {/* SUB DESCRIPTION (OPTIONAL) */}
-                    {item.subDescription && (
-                        <p className="mt-4 text-sm text-black/80 leading-relaxed text-justify">
-                        {item.subDescription}
-                        </p>
-                    )}
+
 
                     {/* POINT LIST */}
-                    <ul className="mt-3 space-y-2 list-disc pl-5 text-black text-justify">
+                    <ul className="mt-3 space-y-2 list-disc pl-5 text-black text-left sm:text-justify">
                         {item.points.map((point, i) => (
                         <li key={i}>{point}</li>
                         ))}

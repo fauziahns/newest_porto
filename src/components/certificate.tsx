@@ -6,28 +6,22 @@ import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
 const certificates = [
   {
-    title: "Certificate of Completion",
-    issuer: "Dicoding Indonesia",
+    title: "Complete Front-End Engineer Career with ReactJs",
+    issuer: "Alterra Academy",
     year: "2023",
     image: "/altera1.jpg",
   },
   {
-    title: "Front-End Web Development",
-    issuer: "Dicoding Indonesia",
+    title: "Score of : Complete Front-End Engineer Career with ReactJs",
+    issuer: "Alterra Academy",
     year: "2023",
     image: "/altera2.jpg",
   },
   {
-    title: "System Analyst",
-    issuer: "Professional Certification",
-    year: "2025",
+    title: "TOEFL ITP",
+    issuer: "Universitas Komputer Indonesia",
+    year: "2024",
     image: "/toefl.jpg",
-  },
-  {
-    title: "Certificate of Achievement",
-    issuer: "Organization / Institution",
-    year: "2025",
-    image: "/certificates/certificate-4.jpg",
   },
 ];
 
@@ -224,15 +218,6 @@ export function Certificates() {
         </div>
 
         {/* Hint */}
-        <div className="flex items-center justify-center gap-2 mt-4">
-          <div className="w-8 h-px bg-[#d9cec4]" />
-
-          <p className="text-xs text-[#9a8e84]">
-            Geser untuk melihat sertifikat lainnya
-          </p>
-
-          <div className="w-8 h-px bg-[#d9cec4]" />
-        </div>
       </div>
     </section>
   );

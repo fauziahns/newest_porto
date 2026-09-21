@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import TextCurved from "./components/ui/used/textCurved";
 import AboutMe from "./components/aboutme";
-import { SmoothCursor } from "./components/ui/smooth-cursor";
 import FloatingCV from "./components/floatingCV";
-import Skill from "./components/skill";
 import { Portofolio } from "./components/portofolio";
 import { Contact } from "./components/contact";
 import { Certificates } from "./components/certificate";
@@ -83,7 +81,7 @@ function App() {
 
             <motion.img
               src="/6.png"
-              alt="Card"
+              alt=""
               className="absolute"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}

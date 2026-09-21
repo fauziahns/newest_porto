@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, Linkedin, ArrowUpRight } from "lucide-react";
+import { Mail, Linkedin, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 
 export function Contact() {

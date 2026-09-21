@@ -36,7 +36,7 @@ export function Portofolio() {
     <div
     className="
         relative
-        bg-[url('/porto.png')]
+        bg-[url('/bgporto-mobile.png')]
         md:bg-[url('/porto.png')]
         bg-no-repeat
         bg-center
@@ -105,17 +105,17 @@ export function Portofolio() {
                         </div>
                     </div>
 
-                  <motion.a
+                  {/* <motion.a
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     href={active.ctaLink}
                     target="_blank"
-                    className="shrink-0 px-4 py-2.5 text-sm rounded-full font-semibold bg-emerald-500 hover:bg-emerald-600 transition-colors text-white text-center"
+                    className="shrink-0 px-4 py-2.5 text-sm rounded-full font-semibold bg-pink-500 hover:bg-pink-600 transition-colors text-white text-center"
                   >
                     {active.ctaText}
-                  </motion.a>
+                  </motion.a> */}
                 </div>
                 <div className="relative px-6 md:px-8 py-6">
                   <motion.div
@@ -135,7 +135,7 @@ export function Portofolio() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-5">
+      <ul className="max-w-4xl pt-28 px-5 mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-5">
         {cards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
@@ -152,7 +152,7 @@ export function Portofolio() {
                 className="h-52 w-full object-cover object-top"
               />
             </motion.div>
-            <div className="flex flex-col p-4">
+            <div className="flex flex-col p-4 flex-wrap gap-2">
                 <motion.h3
                     layoutId={`title-${card.title}-${id}`}
                     className="font-semibold text-neutral-900 text-base"
@@ -246,7 +246,7 @@ const cards = [
     role: "System Analyst",
     date: "2026",
     src: "/wise.png",
-    ctaText: "Lihat Detail",
+    // ctaText: "Lihat Detail",
     ctaLink: "#",
     content: () => {
       return (
@@ -302,7 +302,7 @@ const cards = [
     role: "UI/UX Designer & Frontend Developer",
     date: "2025",
     src: "/hris.png",
-    ctaText: "Lihat Detail",
+    // ctaText: "Lihat Detail",
     ctaLink: "#",
     content: () => {
       return (
